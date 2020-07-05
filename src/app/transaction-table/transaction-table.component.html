@@ -1,0 +1,35 @@
+<div class="wrapper" fxLayoutAlign="center">
+    <div class="transaction-table" fxFlex="nogrow">
+        <cdk-virtual-scroll-viewport [itemSize]="48" class="virtual-viewport">
+            <table>
+                <thead>
+                    <tr>
+                        <th [attr.colspan]="headers.length">
+                            <span class="table-title">
+                                <mat-icon class="icon">history</mat-icon> Recent Transactions
+                            </span>
+                        </th>
+                    </tr>
+                    <tr class="table-headers">
+                        <th *ngFor="let header of headers">{{ header }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *cdkVirtualFor="let transaction of transactions">
+                        <td>
+                            <mat-chip-list [selectable]="false">
+                                <mat-chip>{{transaction.type}}</mat-chip>
+                            </mat-chip-list>
+                        </td>
+                        <td>
+                            <span class="amount-xtz"> {{transaction.amount | number:'1.1-1'}} XTZ</span>
+                            <span class="amount-usd"> {{showXTZasUSD(transaction.amount) | number:'1.1-1'}} USD</span>
+                        </td>
+                        <td>{{ transaction.date | date:'MMM d yyyy, hh:mm' }}</td>
+                        <td>{{ showEllipsis(transaction.address) }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>

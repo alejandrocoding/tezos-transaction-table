@@ -1,0 +1,50 @@
+.transaction-table {
+  border-top: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+
+  .virtual-viewport {
+    width: 600px;
+    min-height: calc(48px * (5 + 2));
+  }
+
+  table {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    thead {
+      .table-title {
+        display: flex;
+        align-items: center;
+        .icon {
+          margin-right: 5px;
+        }
+      }
+      .table-headers {
+        opacity: 0.5;
+        background-color: rgba(185, 185, 185, 0.14);
+      }
+    }
+
+    tr {
+      line-height: 48px;
+    }
+
+    th,
+    td {
+      padding: 0 12px;
+    }
+
+    th {
+      text-align: left;
+      font-weight: normal;
+    }
+
+    .amount-usd {
+      opacity: 0.5;
+      margin-left: 5px;
+    }
+  }
+}
